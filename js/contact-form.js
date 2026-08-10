@@ -36,31 +36,31 @@
           const mg = mgEl ? mgEl.value.trim() : "";
           if (!nm) {
             markInvalid(nmEl);
-            showToast("⚠️ Please enter your name.", "error");
+            showToast("Please enter your name.", "error");
             nmEl && nmEl.focus();
             return;
           }
           if (!em) {
             markInvalid(emEl);
-            showToast("⚠️ Please enter your email.", "error");
+            showToast("Please enter your email.", "error");
             emEl && emEl.focus();
             return;
           }
           if (!GMAIL_RE.test(em)) {
             markInvalid(emEl);
-            showToast("⚠️ Please enter the correct Gmail account.", "error");
+            showToast("Please enter a valid Gmail address.", "error");
             emEl && emEl.focus();
             return;
           }
           if (!sb) {
             markInvalid(sbEl);
-            showToast("⚠️ Please enter a subject/title.", "error");
+            showToast("Please enter a subject.", "error");
             sbEl && sbEl.focus();
             return;
           }
           if (!mg) {
             markInvalid(mgEl);
-            showToast("⚠️ Please write your message.", "error");
+            showToast("Please write your message.", "error");
             mgEl && mgEl.focus();
             return;
           }
@@ -85,11 +85,11 @@
               if (el) el.value = "";
             });
             showToast(
-              "✅ Message sent successfully! We will reply within 24 hours.",
+              "Message sent successfully! We will reply within 24 hours.",
               "success",
             );
           } catch (err) {
-            showToast("⚠️ Something went wrong. Please try again.", "error");
+            showToast("Something went wrong. Please try again.", "error");
           }
           btn.textContent = "Send Message →";
           btn.disabled = false;
