@@ -2,7 +2,7 @@
         const btn = document.getElementById("contact-send");
         if (!btn) return;
         const SCRIPT_URL =
-          "https://script.google.com/macros/s/AKfycbw64qdzixPoaidso7QEgTsDWWlEcrbb6mkyQ4v-CzqxBwOu143ZWdYQ8HfDe2CD1ugM/exec";
+          "https://script.google.com/macros/s/AKfycbx1bQ4C8R_iwDXFF5YZtHGJVbcXrU4KO7izFa5oB3D9ki9gK6gHwwZYqtacsd1ScILv/exec";
         const GMAIL_RE = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
         function markInvalid(el) {
           if (!el) return;
