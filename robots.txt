@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+<<<<<<< HEAD
+Sitemap: https://www.visionsforge.in/sitemap.xml
+=======
 Sitemap: https://visionsforge.in/sitemap.xml
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea

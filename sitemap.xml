@@ -1,32 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/</loc>
+=======
     <loc>https://visionsforge.in/</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/#about</loc>
+=======
     <loc>https://visionsforge.in/#about</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/#services</loc>
+=======
     <loc>https://visionsforge.in/#services</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/#process</loc>
+=======
     <loc>https://visionsforge.in/#process</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/#why</loc>
+=======
     <loc>https://visionsforge.in/#why</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+<<<<<<< HEAD
+    <loc>https://www.visionsforge.in/#contact</loc>
+=======
     <loc>https://visionsforge.in/#contact</loc>
+>>>>>>> 37494dcd20bcd0369e918a5dda98a08cc6b18fea
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
