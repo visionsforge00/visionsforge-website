@@ -1,56 +1,109 @@
 # VisionsForge Website — File Structure
 
-Pehle sab kuch ek hi `index.html` file mein tha (HTML + CSS + JS mixed).
-Ab code ko teen alag technologies ke hisab se split kar diya gaya hai,
-taaki samajhna aur future mein edit karna aasaan ho.
+Previously everything lived in a single `index.html` file (HTML + CSS + JS
+all mixed together). The code has now been split by technology into
+separate, focused files so it's easier to understand and edit in the future.
 
 ## Folder Structure
 
 ```
 site/
-├── index.html              → Sirf HTML structure/content (page ka "skeleton")
-├── robots.txt               → Google/search engines ko crawl permission deta hai
-├── sitemap.xml               → Search engines ko site ke saare pages/sections batata hai
+├── index.html              → HTML structure/content only (the page "skeleton")
+├── robots.txt               → Tells search engines they're allowed to crawl the site
+├── sitemap.xml               → Lists all pages/sections for search engines
+├── blog/
+│   ├── index.html            → Blog listing page (all articles show up here)
+│   └── ai-automation-guide-for-small-business.html → First sample article
 ├── css/
-│   └── style.css            → Saari styling (colors, layout, animations, responsive design)
+│   ├── style.css             → All main site styling (colors, layout, animations, responsive design)
+│   └── blog.css               → Blog listing/article-specific styling
 └── js/
-    ├── loader.js             → Page load hone par loading screen
+    ├── loader.js             → Loading screen shown while the page first loads
     ├── navigation.js          → Nav bar scroll effect + hamburger (mobile) menu
     ├── background-canvas.js   → Background particle animation (dots/lines)
-    ├── hero-canvas.js         → Hero section ka circuit-line animation
-    ├── scroll-animations.js   → Scroll karne par elements fade-in hone wala effect + stats counters
-    ├── world-clock.js         → India/US time zones wali live clock (hero section)
+    ├── hero-canvas.js         → Circuit-line animation in the hero section
+    ├── scroll-animations.js   → Fade-in-on-scroll effect + stats counters
+    ├── world-clock.js         → Live India/US time clock (hero section)
     ├── smooth-scroll.js       → Smooth scrolling (Lenis library) + scroll progress bar + back-to-top button
-    ├── contact-form.js        → Contact form validation aur submit logic
-    ├── magnetic-buttons.js    → Buttons ka "magnetic" hover effect
-    └── chatbot.js              → Neeche wala AI-style chat widget
+    ├── contact-form.js        → Contact form validation + submits leads to Google Sheets
+    ├── magnetic-buttons.js    → "Magnetic" hover effect on buttons
+    └── chatbot.js              → The AI-style chat widget at the bottom of the page
 ```
 
-## Kaise Edit Karein
+## Adding a New Blog Post (Easy Way — No Code Editing)
 
-- **Colors/design change karna hai?** → `css/style.css` kholiye. Sabse upar
-  `:root { --c1: ...; --c2: ...; }` mein brand colors set hain.
-- **Kisi section ka text/content badalna hai?** → `index.html` mein wo section
-  dhoondiye (jaise `<section id="services">`).
-- **Kisi feature ka behavior badalna hai** (jaise hamburger menu, contact form,
-  chatbot ke replies) → us feature ki apni `js/` file kholiye — file ka naam
-  hi bata deta hai wo kya karti hai.
+Use `blog-generator.html` (included in this download, outside the `site/`
+folder). Open it in any browser — it works offline, no internet needed.
 
-Har JS file independent hai — ek file mein change karne se doosri files par
-asar nahi padta (jab tak dono same HTML element ko na chhuein).
+1. Fill in the title, description, category, and content (simple rules: a
+   line starting with `##` becomes a heading, lines starting with `-` become
+   a bullet list, a blank line starts a new paragraph).
+2. Click **Generate**. You'll get:
+   - A ready `.html` file to download
+   - A snippet to paste into `blog/index.html`
+   - A snippet to paste into `sitemap.xml`
+3. Upload the downloaded file into `site/blog/`.
+4. Open `site/blog/index.html`, find the line
+   `<!-- NEW POSTS: PASTE ABOVE THIS LINE -->`, and paste the card snippet
+   right above it.
+5. Open `site/sitemap.xml`, find the same marker comment, and paste the
+   sitemap snippet above it.
+6. Redeploy the `site/` folder.
 
-## Deploy Kaise Karein
+No other file needs to be touched.
 
-1. Poora `site/` folder apne hosting (jaise Hostinger, Netlify, Vercel, GitHub Pages)
-   par upload kar dijiye, folder structure waisa hi rakhiye.
-2. `robots.txt` aur `sitemap.xml` root URL par accessible hone chahiye:
-   `visionsforge.in/robots.txt` aur `visionsforge.in/sitemap.xml`
-3. Apna `logo.png` bhi isi root folder mein daal dijiye (jahan `index.html` hai).
-4. Deploy hone ke baad, Google Search Console (search.google.com/search-console)
-   mein jaakar sitemap submit kar dijiye — isse Google ko site jaldi mil jaati hai.
+## Adding a New Blog Post (Manual Way)
+
+1. Duplicate `blog/ai-automation-guide-for-small-business.html` and rename it
+   (use short, keyword-relevant filenames, e.g. `crm-vs-spreadsheet.html`).
+2. Update the `<title>`, `<meta name="description">`, canonical URL, Open
+   Graph tags, and the JSON-LD `Article` block at the top with the new
+   post's details.
+3. Replace the content inside `<div class="article-body">` with the new
+   article (use `<h2>`/`<h3>` for section headings, `<p>` for paragraphs).
+4. Add a matching card in `blog/index.html` inside `.blog-grid`, above the
+   `<!-- NEW POSTS: PASTE ABOVE THIS LINE -->` marker.
+5. Add the new page's URL to `sitemap.xml`, above the same marker comment.
+
+## How to Edit
+
+- **Want to change colors/design?** → Edit `css/style.css` (the readable
+  source file) — **not** `css/style.min.css`. After editing, regenerate the
+  minified version (ask me to do this, or run it through any CSS minifier)
+  since the live pages actually load `style.min.css` for faster performance.
+- **Want to change a section's text/content?** → Find that section in
+  `index.html` (e.g. `<section id="services">`).
+- **Want to change a feature's behavior** (hamburger menu, contact form,
+  chatbot replies, etc.) → open its dedicated file inside `js/` — the file
+  name tells you exactly what it does.
+
+Each JS file is independent — editing one won't affect the others (unless
+both touch the same HTML element).
+
+## Contact Form → Google Sheets
+
+The contact form (`js/contact-form.js`) sends every submission to a Google
+Apps Script Web App, which writes it as a new row in a Google Sheet. The
+`SCRIPT_URL` constant near the top of that file holds the deployment URL.
+
+If you ever need to point it to a different sheet:
+1. Deploy a new Apps Script Web App (Deploy → New deployment → Web app,
+   execute as "Me", access "Anyone").
+2. Copy the new `.../exec` URL.
+3. Replace the `SCRIPT_URL` value in `js/contact-form.js`.
+
+## How to Deploy
+
+1. Upload the entire `site/` folder to your hosting (Vercel, Netlify,
+   Hostinger, GitHub Pages, etc.), keeping the folder structure intact.
+2. Make sure `robots.txt` and `sitemap.xml` are reachable at the root URL:
+   `visionsforge.in/robots.txt` and `visionsforge.in/sitemap.xml`.
+3. Put your `logo.png` in the same root folder as `index.html`.
+4. After deploying, submit the sitemap in Google Search Console
+   (search.google.com/search-console) so Google finds the site faster.
 
 ## Note
 
-`index.html` mein saari links (`css/style.css`, `js/*.js`) **relative paths**
-hain, isliye poora `site/` folder structure jaisa hai waisa hi rakhna zaroori
-hai — agar files idhar-udhar move ki to links toot jaayenge.
+Every link inside `index.html` (`css/style.css`, `js/*.js`) uses a
+**relative path**, so the `site/` folder structure must stay exactly as-is —
+moving files around will break those links.

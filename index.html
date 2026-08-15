@@ -57,70 +57,6 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://www.visionsforge.in/#person",
-            "name": "Nishant Malakar",
-            "url": "https://www.visionsforge.in",
-            "image": "https://www.visionsforge.in/logo.png",
-            "jobTitle": "AI Developer & Founder",
-            "worksFor": { "@type": "Organization", "name": "VisionsForge" },
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Indore",
-              "addressRegion": "Madhya Pradesh",
-              "addressCountry": "IN"
-            },
-            "sameAs": [
-              "https://www.instagram.com/visionsforge.io/",
-              "https://wa.me/919669880949",
-              "mailto:contact@visionsforge.in"
-            ],
-            "knowsAbout": [
-              "AI Automation",
-              "Full Stack Web CRM",
-              "Custom CRM Software",
-              "Workflow Automation",
-              "AI Agents",
-              "LLM API Integration",
-              "React",
-              "Node.js",
-              "Python"
-            ]
-          },
-          {
-            "@type": "ProfessionalService",
-            "@id": "https://www.visionsforge.in/#organization",
-            "name": "VisionsForge",
-            "url": "https://www.visionsforge.in",
-            "logo": "https://www.visionsforge.in/logo.png",
-            "founder": { "@id": "https://www.visionsforge.in/#person" },
-            "email": "contact@visionsforge.in",
-            "telephone": "+919669880949",
-            "priceRange": "$$",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Indore",
-              "addressRegion": "Madhya Pradesh",
-              "addressCountry": "IN"
-            },
-            "areaServed": ["IN", "US", "GB", "AE"],
-            "description": "VisionsForge by Nishant Malakar builds intelligent AI agents, custom Full Stack Web CRM software, and workflow automation systems."
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://www.visionsforge.in/#website",
-            "url": "https://www.visionsforge.in",
-            "name": "VisionsForge",
-            "publisher": { "@id": "https://www.visionsforge.in/#person" }
-          }
-        ]
-      }
-    </script>
     <style>
       /* Critical inline CSS: paints the dark background immediately,
          before css/style.css finishes loading, so no white flash appears */
@@ -129,7 +65,7 @@
         background: #060a10;
       }
     </style>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
       defer
@@ -177,7 +113,7 @@
       <div class="nav-links">
         <a href="#about">About</a><a href="#services">Services</a
         ><a href="#process">Process</a><a href="#why">Why Us</a
-        ><a href="#contact">Contact</a>
+        ><a href="blog/">Blog</a><a href="#contact">Contact</a>
       </div>
       <div class="nav-actions">
         <a href="#contact" class="nav-cta"><span>DM Us →</span></a
@@ -191,9 +127,11 @@
       ><a href="#services" class="ml">Services</a
       ><a href="#process" class="ml">Process</a
       ><a href="#why" class="ml">Why Us</a
+      ><a href="blog/" class="ml">Blog</a
       ><a href="#contact" class="ml">Contact</a>
     </div>
-    <section id="hero">
+    <main>
+      <section id="hero">
       <svg
         class="hbg-svg"
         viewBox="0 0 1200 700"
@@ -418,17 +356,57 @@
               ><span class="pill">React / Next.js</span
               ><span class="pill">Cloud Deploy</span>
             </div>
+            <div class="cert-list">
+              <a
+                class="cert-item"
+                href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=59EBFB89D4E6ADE3431E06FFA8DF4516444F2C111123981C31E06B7AB6EDF061"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="cert-icon">🏅</span>
+                <div>
+                  <div class="cert-name">
+                    OCI Generative AI Professional
+                  </div>
+                  <div class="cert-issuer">Oracle · Verify →</div>
+                </div>
+              </a>
+              <a
+                class="cert-item"
+                href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=BA40B1CAD9D4F7FF06C2D46477DDB29757DC86A33E0B45C72EC3BCF35299A658"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="cert-icon">🏅</span>
+                <div>
+                  <div class="cert-name">OCI Data Science Professional</div>
+                  <div class="cert-issuer">Oracle · Verify →</div>
+                </div>
+              </a>
+              <a
+                class="cert-item"
+                href="https://www.credly.com/badges/8f19c5bb-c920-4c3e-a172-706ac96b4530"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="cert-icon">🏅</span>
+                <div>
+                  <div class="cert-name">Data Analytics Certification</div>
+                  <div class="cert-issuer">Cisco · Verify →</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <section id="wwd">
       <div class="con">
-        <div class="wh">WHAT <strong>WE DO</strong></div>
+        <h2 class="wh">WHAT <strong>WE DO</strong></h2>
         <div class="wg">
           <div class="wc rv d1">
             <span class="wi">🤖</span>
-            <h4 class="cc">AI AGENTS</h4>
+            <h3 class="cc">AI AGENTS</h3>
             <p>
               Custom AI agents that handle tasks, conversations &amp; decisions
               automatically.
@@ -436,7 +414,7 @@
           </div>
           <div class="wc rv d2">
             <span class="wi">⚙️</span>
-            <h4 class="cp">WORKFLOW AUTOMATION</h4>
+            <h3 class="cp">WORKFLOW AUTOMATION</h3>
             <p>
               Automate repetitive business processes and dramatically improve
               productivity.
@@ -444,7 +422,7 @@
           </div>
           <div class="wc rv d3">
             <span class="wi">💻</span>
-            <h4 class="cb">FULL STACK WEB CRM</h4>
+            <h3 class="cb">FULL STACK WEB CRM</h3>
             <p>
               Custom CRM systems &amp; web apps tailored to your unique business
               logic.
@@ -452,7 +430,7 @@
           </div>
           <div class="wc rv d4">
             <span class="wi">📈</span>
-            <h4 class="cg">BUSINESS GROWTH</h4>
+            <h3 class="cg">BUSINESS GROWTH</h3>
             <p>
               Smart automation solutions that drive growth and operational
               efficiency.
@@ -795,6 +773,84 @@
         </div>
       </div>
     </section>
+    <section id="faq" style="padding: 100px 0">
+      <div class="con">
+        <span class="stag">❓ FAQ</span>
+        <h2 class="st">
+          Frequently Asked <span class="gr">Questions</span>
+        </h2>
+        <p class="ss" style="margin-bottom: 40px; max-width: 640px">
+          Common questions about working with VisionsForge — on ownership,
+          data, pricing, and how projects actually run.
+        </p>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>
+              Do I own the code and AI system after the project is
+              delivered?
+            </summary>
+            <p>
+              Yes. Once a project is delivered and paid for, the code and
+              the system belong entirely to you — there's no ongoing
+              licensing fee or vendor lock-in tied to VisionsForge.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Is my customer data safe with a custom-built AI system?
+            </summary>
+            <p>
+              Yes. Since the system is built specifically for your
+              business, data storage and access can be scoped exactly to
+              your requirements, instead of relying on a third-party
+              platform's default policies.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Do you charge a fixed price or hourly for automation
+              projects?
+            </summary>
+            <p>
+              Projects are typically quoted as a fixed price based on
+              scope, agreed on upfront — so there are no surprise hourly
+              bills partway through.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Can an AI agent handle both Hindi and English customer
+              messages?
+            </summary>
+            <p>
+              Yes. AI agents can be built to understand and reply in
+              Hindi, English, or Hinglish — matched to how your customers
+              actually communicate.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Can you integrate automation with tools I already use, like
+              Tally, Google Sheets, or Zoho?
+            </summary>
+            <p>
+              In most cases, yes. AI agents and automation workflows can
+              be connected to the tools your business already runs on,
+              instead of forcing you to switch platforms.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>
+              Do you work with clients outside India remotely?
+            </summary>
+            <p>
+              Yes. VisionsForge works with clients remotely worldwide —
+              all communication, planning, and delivery happen online.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
     <section id="contact">
       <div class="con">
         <div class="ctin">
@@ -1108,6 +1164,7 @@
         </div>
       </div>
     </section>
+    </main>
     <footer>
       <div class="fg-glow"></div>
       <div class="con">
@@ -1150,6 +1207,8 @@
             <ul>
               <li><a href="#about">About Nishant Malakar</a></li>
               <li><a href="#process">Process</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="blog/">Blog</a></li>
             </ul>
           </div>
           <div class="fcol">
@@ -1223,5 +1282,149 @@
     <script src="js/contact-form.js" defer></script>
     <script src="js/magnetic-buttons.js" defer></script>
     <script src="js/chatbot.js" defer></script>
+  
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.visionsforge.in/#person",
+            "name": "Nishant Malakar",
+            "url": "https://www.visionsforge.in",
+            "image": "https://www.visionsforge.in/logo.png",
+            "jobTitle": "AI Developer & Founder",
+            "worksFor": { "@type": "Organization", "name": "VisionsForge" },
+            "hasCredential": [
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "certificate",
+                "name": "OCI Generative AI Professional",
+                "url": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=59EBFB89D4E6ADE3431E06FFA8DF4516444F2C111123981C31E06B7AB6EDF061",
+                "recognizedBy": { "@type": "Organization", "name": "Oracle" }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "certificate",
+                "name": "OCI Data Science Professional",
+                "url": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=BA40B1CAD9D4F7FF06C2D46477DDB29757DC86A33E0B45C72EC3BCF35299A658",
+                "recognizedBy": { "@type": "Organization", "name": "Oracle" }
+              },
+              {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "certificate",
+                "name": "Data Analytics Certification",
+                "url": "https://www.credly.com/badges/8f19c5bb-c920-4c3e-a172-706ac96b4530",
+                "recognizedBy": { "@type": "Organization", "name": "Cisco" }
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Indore",
+              "addressRegion": "Madhya Pradesh",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.instagram.com/visionsforge.io/",
+              "https://wa.me/919669880949",
+              "mailto:contact@visionsforge.in"
+            ],
+            "knowsAbout": [
+              "AI Automation",
+              "Full Stack Web CRM",
+              "Custom CRM Software",
+              "Workflow Automation",
+              "AI Agents",
+              "LLM API Integration",
+              "React",
+              "Node.js",
+              "Python"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.visionsforge.in/#organization",
+            "name": "VisionsForge",
+            "url": "https://www.visionsforge.in",
+            "logo": "https://www.visionsforge.in/logo.png",
+            "founder": { "@id": "https://www.visionsforge.in/#person" },
+            "email": "contact@visionsforge.in",
+            "telephone": "+919669880949",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Indore",
+              "addressRegion": "Madhya Pradesh",
+              "addressCountry": "IN"
+            },
+            "areaServed": ["IN", "US", "GB", "AE"],
+            "description": "VisionsForge by Nishant Malakar builds intelligent AI agents, custom Full Stack Web CRM software, and workflow automation systems."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.visionsforge.in/#website",
+            "url": "https://www.visionsforge.in",
+            "name": "VisionsForge",
+            "publisher": { "@id": "https://www.visionsforge.in/#person" }
+          }
+        ]
+      }
+    </script>
+<script type="application/ld+json">
+      {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I own the code and AI system after the project is delivered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Once a project is delivered and paid for, the code and the system belong entirely to you \u2014 there's no ongoing licensing fee or vendor lock-in tied to VisionsForge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my customer data safe with a custom-built AI system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Since the system is built specifically for your business, data storage and access can be scoped exactly to your requirements, instead of relying on a third-party platform's default policies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge a fixed price or hourly for automation projects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Projects are typically quoted as a fixed price based on scope, agreed on upfront \u2014 so there are no surprise hourly bills partway through."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an AI agent handle both Hindi and English customer messages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI agents can be built to understand and reply in Hindi, English, or Hinglish \u2014 matched to how your customers actually communicate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you integrate automation with tools I already use, like Tally, Google Sheets, or Zoho?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most cases, yes. AI agents and automation workflows can be connected to the tools your business already runs on, instead of forcing you to switch platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with clients outside India remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. VisionsForge works with clients remotely worldwide \u2014 all communication, planning, and delivery happen online."
+      }
+    }
+  ]
+}
+    </script>
   </body>
 </html>

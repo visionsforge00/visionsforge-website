@@ -16,7 +16,7 @@
         --border: rgba(0, 229, 200, 0.1);
         --border2: rgba(0, 229, 200, 0.22);
         --text: #e8f4f8;
-        --muted: rgba(180, 210, 225, 0.55);
+        --muted: rgba(180, 210, 225, 0.72);
         --muted2: rgba(180, 210, 225, 0.32);
         --nav-bg: rgba(6, 10, 16, 0.82);
         --shadow: rgba(0, 0, 0, 0.5);
@@ -2851,4 +2851,103 @@
       .fi2:valid,
       .fta:valid {
         border-color: rgba(0, 229, 200, 0.25);
+      }
+
+      /* ===== FAQ Accordion ===== */
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 780px;
+      }
+      .faq-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color 0.25s;
+      }
+      .faq-item[open] {
+        border-color: rgba(0, 229, 200, 0.3);
+      }
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 20px 52px 20px 22px;
+        font-family: var(--fh);
+        font-weight: 700;
+        font-size: 15.5px;
+        color: var(--text);
+        line-height: 1.5;
+        position: relative;
+        user-select: none;
+      }
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 22px;
+        top: 18px;
+        font-family: var(--fb);
+        font-size: 22px;
+        font-weight: 400;
+        color: var(--c1);
+        transition: transform 0.25s;
+      }
+      .faq-item[open] summary::after {
+        transform: rotate(45deg);
+      }
+      .faq-item p {
+        font-family: var(--fb);
+        font-size: 14.5px;
+        line-height: 1.7;
+        color: var(--muted);
+        padding: 0 22px 22px;
+        margin: 0;
+      }
+
+      /* ===== Certifications (About section) ===== */
+      .cert-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 24px;
+      }
+      .cert-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 16px;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .cert-item:hover {
+        border-color: rgba(0, 229, 200, 0.35);
+        transform: translateX(2px);
+      }
+      .cert-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .cert-name {
+        font-family: var(--fb);
+        font-weight: 700;
+        font-size: 13.5px;
+        color: var(--text);
+        line-height: 1.4;
+      }
+      .cert-issuer {
+        font-family: var(--fm);
+        font-size: 11.5px;
+        color: var(--c1);
+        letter-spacing: 0.03em;
+        margin-top: 2px;
       }

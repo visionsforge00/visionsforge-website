@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisionsForge — Blog Post Generator</title>
+    <style>
+      :root {
+        --c1: #00e5c8;
+        --c2: #3b82f6;
+        --c3: #7c3aff;
+        --bg: #060a10;
+        --card: #0d1828;
+        --border: rgba(0, 229, 200, 0.15);
+        --text: #e8f4f8;
+        --muted: rgba(180, 210, 225, 0.6);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 32px 20px 80px;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 26px;
+        margin-bottom: 4px;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 24px;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--c1);
+        margin-bottom: 6px;
+        font-weight: 700;
+      }
+      .hint {
+        color: var(--muted);
+        font-size: 12.5px;
+        margin: -4px 0 10px;
+        line-height: 1.5;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        background: #0a1220;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 11px 12px;
+        color: var(--text);
+        font-size: 14px;
+        font-family: inherit;
+        margin-bottom: 18px;
+      }
+      textarea {
+        resize: vertical;
+        line-height: 1.6;
+      }
+      #content {
+        min-height: 260px;
+      }
+      button {
+        background: linear-gradient(135deg, var(--c1), var(--c3));
+        color: #06121a;
+        border: none;
+        font-weight: 800;
+        font-size: 15px;
+        padding: 14px 24px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        opacity: 0.9;
+      }
+      .out {
+        display: none;
+      }
+      .out.show {
+        display: block;
+      }
+      .out h2 {
+        font-size: 16px;
+        margin: 28px 0 8px;
+        color: var(--c1);
+      }
+      .out p.desc {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 10px;
+      }
+      pre {
+        background: #050a11;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 12px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+        max-height: 220px;
+      }
+      .copy-btn {
+        background: rgba(0, 229, 200, 0.12);
+        color: var(--c1);
+        border: 1px solid rgba(0, 229, 200, 0.3);
+        font-weight: 700;
+        font-size: 12.5px;
+        padding: 8px 14px;
+        border-radius: 6px;
+        width: auto;
+        margin-bottom: 10px;
+      }
+      .dl-btn {
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+        color: #06121a;
+        font-weight: 800;
+        font-size: 14px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        width: auto;
+        margin-top: 6px;
+      }
+      .steps {
+        background: rgba(124, 58, 255, 0.08);
+        border: 1px solid rgba(124, 58, 255, 0.25);
+        border-radius: 10px;
+        padding: 16px 18px;
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--muted);
+        margin-top: 24px;
+      }
+      .steps b {
+        color: var(--text);
+      }
+      .steps ol {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>📝 Blog Post Generator</h1>
+      <p class="sub">
+        Fill this form, click Generate — you'll get a ready-to-upload blog
+        post file, plus two small snippets to paste into your site. No need
+        to touch any other code.
+      </p>
+
+      <div class="card">
+        <label>Post Title</label>
+        <div class="hint">Example: 5 Signs Your Business Needs an AI Agent</div>
+        <input type="text" id="title" placeholder="Your blog post title" />
+
+        <label>Short Description (for Google search results)</label>
+        <div class="hint">1-2 sentences, under 160 characters is ideal.</div>
+        <textarea
+          id="description"
+          rows="2"
+          placeholder="A short summary of what this post covers"
+        ></textarea>
+
+        <label>Category Tag</label>
+        <div class="hint">Shown as a small label on the post.</div>
+        <select id="tag">
+          <option>AI Automation</option>
+          <option>CRM</option>
+          <option>How-To</option>
+          <option>Case Study</option>
+          <option>Business Tips</option>
+        </select>
+
+        <label>Estimated Read Time</label>
+        <input type="text" id="readtime" placeholder="e.g. 5 min read" value="5 min read" />
+
+        <label>Content</label>
+        <div class="hint">
+          Simple formatting rules:<br />
+          • Line starting with <b>##</b> → becomes a section heading<br />
+          • Line starting with <b>-</b> → becomes a bullet point<br />
+          • A blank line → starts a new paragraph<br />
+          • Wrap a word in <b>**like this**</b> → makes it bold
+        </div>
+        <textarea
+          id="content"
+          placeholder="## Why This Matters&#10;&#10;Write your opening paragraph here...&#10;&#10;## Key Points&#10;- First point&#10;- Second point&#10;- Third point"
+        ></textarea>
+
+        <button onclick="generate()">Generate Blog Post →</button>
+      </div>
+
+      <div class="out" id="output">
+        <div class="card">
+          <h2>1. Downloadable Post File</h2>
+          <p class="desc">
+            Download this file, then upload it into your site's
+            <code>blog/</code> folder (same place as your other blog posts).
+          </p>
+          <button class="dl-btn" onclick="downloadFile()">
+            ⬇ Download HTML File
+          </button>
+        </div>
+
+        <div class="card">
+          <h2>2. Paste This Into <code>blog/index.html</code></h2>
+          <p class="desc">
+            Open <code>blog/index.html</code>, find the line that says
+            <code>&lt;!-- NEW POSTS: PASTE ABOVE THIS LINE --&gt;</code>, and
+            paste this snippet right above it.
+          </p>
+          <button class="copy-btn" onclick="copyText('cardSnippet')">
+            📋 Copy Snippet
+          </button>
+          <pre id="cardSnippet"></pre>
+        </div>
+
+        <div class="card">
+          <h2>3. Paste This Into <code>sitemap.xml</code></h2>
+          <p class="desc">
+            Open <code>sitemap.xml</code>, find the line that says
+            <code>&lt;!-- NEW POSTS: PASTE ABOVE THIS LINE --&gt;</code>, and
+            paste this snippet right above it.
+          </p>
+          <button class="copy-btn" onclick="copyText('sitemapSnippet')">
+            📋 Copy Snippet
+          </button>
+          <pre id="sitemapSnippet"></pre>
+        </div>
+
+        <div class="steps">
+          <b>Full checklist:</b>
+          <ol>
+            <li>Download the HTML file above, upload it into your <code>blog/</code> folder</li>
+            <li>Paste snippet #2 into <code>blog/index.html</code></li>
+            <li>Paste snippet #3 into <code>sitemap.xml</code></li>
+            <li>Redeploy your site (upload the updated folder to Vercel)</li>
+          </ol>
+          That's it — no other file needs to change.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function slugify(title) {
+        return title
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .trim()
+          .replace(/\s+/g, "-")
+          .slice(0, 60);
+      }
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function inlineFormat(text) {
+        return escapeHtml(text).replace(
+          /\*\*(.+?)\*\*/g,
+          "<strong>$1</strong>",
+        );
+      }
+
+      function contentToHtml(raw) {
+        const lines = raw.split("\n");
+        let html = "";
+        let para = [];
+        let list = [];
+
+        function flushPara() {
+          if (para.length) {
+            html += "        <p>" + inlineFormat(para.join(" ")) + "</p>\n";
+            para = [];
+          }
+        }
+        function flushList() {
+          if (list.length) {
+            html += "        <ul>\n";
+            list.forEach((li) => {
+              html += "          <li>" + inlineFormat(li) + "</li>\n";
+            });
+            html += "        </ul>\n";
+            list = [];
+          }
+        }
+
+        lines.forEach((line) => {
+          const t = line.trim();
+          if (t.startsWith("## ")) {
+            flushPara();
+            flushList();
+            html += "        <h2>" + escapeHtml(t.slice(3)) + "</h2>\n";
+          } else if (t.startsWith("- ")) {
+            flushPara();
+            list.push(t.slice(2));
+          } else if (t === "") {
+            flushPara();
+            flushList();
+          } else {
+            flushList();
+            para.push(t);
+          }
+        });
+        flushPara();
+        flushList();
+        return html;
+      }
+
+      let lastFile = { name: "", content: "" };
+
+      function generate() {
+        const title = document.getElementById("title").value.trim();
+        const description = document.getElementById("description").value.trim();
+        const tag = document.getElementById("tag").value;
+        const readtime = document.getElementById("readtime").value.trim() || "5 min read";
+        const contentRaw = document.getElementById("content").value;
+
+        if (!title || !contentRaw.trim()) {
+          alert("Please fill in at least the Title and Content.");
+          return;
+        }
+
+        const slug = slugify(title);
+        const today = new Date().toISOString().split("T")[0];
+        const displayDate = new Date().toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        });
+        const bodyHtml = contentToHtml(contentRaw);
+        const escTitle = escapeHtml(title);
+        const escDesc = escapeHtml(description);
+
+        const fileContent = `<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escTitle} | VisionsForge</title>
+    <meta name="description" content="${escDesc}" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.visionsforge.in/blog/${slug}.html" />
+    <link rel="icon" href="../logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../logo.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="${escTitle}" />
+    <meta property="og:description" content="${escDesc}" />
+    <meta property="og:url" content="https://www.visionsforge.in/blog/${slug}.html" />
+    <meta property="og:image" content="https://www.visionsforge.in/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escTitle}" />
+    <meta name="twitter:description" content="${escDesc}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700;800;900&family=Open+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "${escTitle}",
+        "description": "${escDesc}",
+        "author": { "@type": "Person", "name": "Nishant Malakar", "url": "https://www.visionsforge.in/" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "VisionsForge",
+          "logo": { "@type": "ImageObject", "url": "https://www.visionsforge.in/logo.png" }
+        },
+        "datePublished": "${today}",
+        "dateModified": "${today}",
+        "mainEntityOfPage": "https://www.visionsforge.in/blog/${slug}.html"
+      }
+    <\/script>
+
+    <style>
+      html, body { background: #060a10; }
+    </style>
+    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="stylesheet" href="../css/blog.min.css" />
+  </head>
+  <body class="loaded">
+    <nav id="nav">
+      <a href="../index.html" class="nav-left"
+        ><div class="nav-logo-img">
+          <img src="../logo.png" alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM" width="40" height="40" loading="eager" decoding="async" />
+        </div>
+        <div>
+          <div class="nav-bn"><span class="nv">VISIONS</span><span class="nf">FORGE</span></div>
+          <div class="nav-bt">Turning Ideas Into Intelligent Automation</div>
+        </div></a
+      >
+      <div class="nav-links">
+        <a href="../index.html#about">About</a><a href="../index.html#services">Services</a
+        ><a href="../index.html#process">Process</a><a href="../index.html#why">Why Us</a
+        ><a href="./" class="active">Blog</a><a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a href="../index.html#contact" class="nav-cta"><span>DM Us →</span></a
+        ><button class="hbg" id="hbg" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mm" id="mm">
+      <a href="../index.html#about" class="ml">About</a><a href="../index.html#services" class="ml">Services</a
+      ><a href="../index.html#process" class="ml">Process</a><a href="../index.html#why" class="ml">Why Us</a
+      ><a href="./" class="ml">Blog</a><a href="../index.html#contact" class="ml">Contact</a>
+    </div>
+
+    <article class="article-wrap">
+      <a href="./" class="article-back">← Back to Blog</a>
+      <span class="bc-tag">${escapeHtml(tag)}</span>
+      <h1>${escTitle}</h1>
+      <div class="article-meta">By Nishant Malakar · ${displayDate} · ${escapeHtml(readtime)}</div>
+
+      <div class="article-body">
+${bodyHtml}      </div>
+
+      <div class="article-cta">
+        <h3>Have a Project in Mind?</h3>
+        <p>Nishant Malakar &amp; VisionsForge build custom AI agents, workflow automation, and Full Stack Web CRM systems — tailored to your business.</p>
+        <a href="../index.html#contact" class="bp"><span>Let's Talk →</span></a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="fg-glow"></div>
+      <div class="con">
+        <div class="fig">
+          <div>
+            <div class="fbr">
+              <img src="../logo.png" alt="Nishant Malakar - VisionsForge" width="40" height="40" loading="lazy" decoding="async" />
+              <div><div class="fbn"><span class="nv">VISIONS</span><span class="nf">FORGE</span></div></div>
+            </div>
+            <div class="fbt">Turning Ideas Into Intelligent Automation</div>
+            <p class="fd">Nishant Malakar &amp; VisionsForge build intelligent AI agents, custom Full Stack Web CRM platforms, and workflow automation systems.</p>
+          </div>
+          <div class="fcol">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="../index.html#services">AI Agent Dev</a></li>
+              <li><a href="../index.html#services">Workflow Automation</a></li>
+              <li><a href="../index.html#services">Full Stack Web CRM</a></li>
+              <li><a href="../index.html#services">UI/UX Design</a></li>
+              <li><a href="../index.html#services">DevOps</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="../index.html#about">About Nishant Malakar</a></li>
+              <li><a href="../index.html#process">Process</a></li>
+              <li><a href="../index.html#faq">FAQ</a></li>
+              <li><a href="./">Blog</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@visionsforge.in">Email Us</a></li>
+              <li><a href="https://wa.me/919669880949" target="_blank" rel="noopener noreferrer">+91 9669880949 (WhatsApp)</a></li>
+              <li><a href="https://www.instagram.com/visionsforge.io/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="../index.html#contact">Send Message</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="fbot"><span>© 2026 VisionsForge · Nishant Malakar · Indore, India</span></div>
+      </div>
+    </footer>
+
+    <script src="../js/navigation.js" defer><\/script>
+  </body>
+</html>
+`;
+
+        const cardSnippet = `          <a href="${slug}.html" class="blog-card">
+            <span class="bc-tag">${escapeHtml(tag)}</span>
+            <h2>${escTitle}</h2>
+            <p>${escDesc}</p>
+            <span class="bc-meta">Nishant Malakar · ${escapeHtml(readtime)}</span>
+            <span class="bc-read">Read Article →</span>
+          </a>`;
+
+        const sitemapSnippet = `  <url>
+    <loc>https://www.visionsforge.in/blog/${slug}.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+
+        document.getElementById("cardSnippet").textContent = cardSnippet;
+        document.getElementById("sitemapSnippet").textContent = sitemapSnippet;
+        lastFile = { name: slug + ".html", content: fileContent };
+
+        document.getElementById("output").classList.add("show");
+        document.getElementById("output").scrollIntoView({ behavior: "smooth" });
+      }
+
+      function downloadFile() {
+        if (!lastFile.content) return;
+        const blob = new Blob([lastFile.content], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = lastFile.name;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function copyText(id) {
+        const text = document.getElementById(id).textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          alert("Copied! Now paste it into the right file.");
+        });
+      }
+    </script>
+  </body>
+</html>
