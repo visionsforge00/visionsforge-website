@@ -53,10 +53,24 @@
     <meta name="twitter:image" content="https://www.visionsforge.in/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <!-- Fonts loaded asynchronously (non-render-blocking): the stylesheet
+         is fetched with low priority via preload, then swapped in on load.
+         font-display:swap in the URL means text still paints instantly
+         with the fallback font, so there's no invisible-text delay. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Open+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      />
+    </noscript>
     <style>
       /* Critical inline CSS: paints the dark background immediately,
          before css/style.css finishes loading, so no white flash appears */
@@ -88,15 +102,19 @@
   <body>
     <div id="scroll-progress"></div>
     <div id="loader">
-      <img
-        src="logo-icon.png"
-        class="ld-logo"
-        alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM Specialist"
-        width="88"
-        height="88"
-        loading="eager"
-        decoding="async"
-      />
+      <picture>
+        <source srcset="logo-icon.webp" type="image/webp" />
+        <img
+          src="logo-icon.png"
+          class="ld-logo"
+          alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM Specialist"
+          width="88"
+          height="88"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
       <div>
         <div class="ld-name"><b>VISIONS</b><span>FORGE</span></div>
         <div class="ld-tag">Turning Ideas Into Intelligent Automation</div>
@@ -108,14 +126,17 @@
     <nav id="nav">
       <a href="#" class="nav-left"
         ><div class="nav-logo-img">
-          <img
-            src="logo-icon.png"
-            alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM"
-            width="40"
-            height="40"
-            loading="eager"
-            decoding="async"
-          />
+          <picture>
+            <source srcset="logo-icon.webp" type="image/webp" />
+            <img
+              src="logo-icon.png"
+              alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM"
+              width="40"
+              height="40"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div>
           <div class="nav-bn">
@@ -136,7 +157,7 @@
           rel="noopener noreferrer"
           class="nav-cta"
           id="book-call-btn"
-          ><span>📅 Book a Call →</span></a
+          ><span>📅 Book an Appointment →</span></a
         ><button class="hbg" id="hbg" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -268,14 +289,17 @@
             <div class="about-card-ui">
               <div class="ac-profile">
                 <div class="ac-avatar">
-                  <img
-                    src="logo-icon.png"
-                    alt="Nishant Malakar - Founder of VisionsForge"
-                    width="72"
-                    height="72"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <picture>
+                    <source srcset="logo-icon.webp" type="image/webp" />
+                    <img
+                      src="logo-icon.png"
+                      alt="Nishant Malakar - Founder of VisionsForge"
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <div class="ac-info">
                   <div class="ac-name">Nishant Malakar</div>
@@ -888,7 +912,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="book-call-alt"
-              >📅 Prefer to talk directly? Book a call →</a
+              >📅 Prefer to talk directly? Book an appointment →</a
             >
             <div class="cdet">
               <a
@@ -1198,14 +1222,17 @@
         <div class="fig">
           <div>
             <div class="fbr">
-              <img
-                src="logo-icon.png"
-                alt="Nishant Malakar - VisionsForge"
-                width="40"
-                height="40"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source srcset="logo-icon.webp" type="image/webp" />
+                <img
+                  src="logo-icon.png"
+                  alt="Nishant Malakar - VisionsForge"
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <div>
                 <div class="fbn">
                   <span class="nv">VISIONS</span><span class="nf">FORGE</span>

@@ -1,6 +1,12 @@
       (function () {
         const cv = document.getElementById("hc");
         if (!cv) return;
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
         const ctx = cv.getContext("2d");
         let W,
           H,
@@ -81,5 +87,12 @@
           t += 0.006;
           requestAnimationFrame(draw);
         }
-        draw();
+        function start() {
+          requestAnimationFrame(draw);
+        }
+        if (document.readyState === "complete") {
+          start();
+        } else {
+          window.addEventListener("load", start, { once: true });
+        }
       })();

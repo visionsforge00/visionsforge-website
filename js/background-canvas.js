@@ -1,6 +1,12 @@
       (function () {
         const cv = document.getElementById("bg-canvas");
         if (!cv) return;
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
         const ctx = cv.getContext("2d");
         let W,
           H,
@@ -180,5 +186,14 @@
           t += dt;
           requestAnimationFrame(draw);
         }
-        draw(performance.now());
+        function start() {
+          draw(performance.now());
+        }
+        if (document.readyState === "complete") {
+          requestAnimationFrame(start);
+        } else {
+          window.addEventListener("load", () => requestAnimationFrame(start), {
+            once: true,
+          });
+        }
       })();
