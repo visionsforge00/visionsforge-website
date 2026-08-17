@@ -24,8 +24,8 @@
     <meta name="geo.region" content="IN-MP" />
     <meta name="geo.placename" content="Indore" />
     <link rel="canonical" href="https://www.visionsforge.in/" />
-    <link rel="icon" href="logo.png" type="image/png" />
-    <link rel="apple-touch-icon" href="logo.png" />
+    <link rel="icon" href="logo-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="logo-icon.png" />
     <meta name="theme-color" content="#060A10" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.visionsforge.in/" />
@@ -70,12 +70,26 @@
       src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"
       defer
     ></script>
+
+    <!-- Google Analytics (GA4) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E0ZMCPW66K"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-E0ZMCPW66K");
+    </script>
   </head>
   <body>
     <div id="scroll-progress"></div>
     <div id="loader">
       <img
-        src="logo.png"
+        src="logo-icon.png"
         class="ld-logo"
         alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM Specialist"
         width="88"
@@ -95,7 +109,7 @@
       <a href="#" class="nav-left"
         ><div class="nav-logo-img">
           <img
-            src="logo.png"
+            src="logo-icon.png"
             alt="Nishant Malakar - VisionsForge AI Automation & Full Stack Web CRM"
             width="40"
             height="40"
@@ -116,7 +130,13 @@
         ><a href="blog/">Blog</a><a href="#contact">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="#contact" class="nav-cta"><span>DM Us →</span></a
+        <a
+          href="https://calendar.app.google/Fp5gyUbnzxqs9Qz2A"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-cta"
+          id="book-call-btn"
+          ><span>📅 Book a Call →</span></a
         ><button class="hbg" id="hbg" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -249,7 +269,7 @@
               <div class="ac-profile">
                 <div class="ac-avatar">
                   <img
-                    src="logo.png"
+                    src="logo-icon.png"
                     alt="Nishant Malakar - Founder of VisionsForge"
                     width="72"
                     height="72"
@@ -863,6 +883,13 @@
               Have an AI automation, Full Stack Web CRM, or software project?
               Nishant Malakar replies within 24 hours.
             </p>
+            <a
+              href="https://calendar.app.google/Fp5gyUbnzxqs9Qz2A"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="book-call-alt"
+              >📅 Prefer to talk directly? Book a call →</a
+            >
             <div class="cdet">
               <a
                 href="mailto:contact@visionsforge.in"
@@ -1172,7 +1199,7 @@
           <div>
             <div class="fbr">
               <img
-                src="logo.png"
+                src="logo-icon.png"
                 alt="Nishant Malakar - VisionsForge"
                 width="40"
                 height="40"
@@ -1193,7 +1220,7 @@
             </p>
           </div>
           <div class="fcol">
-            <h4>Services</h4>
+            <h3>Services</h3>
             <ul>
               <li><a href="#services">AI Agent Dev</a></li>
               <li><a href="#services">Workflow Automation</a></li>
@@ -1203,16 +1230,17 @@
             </ul>
           </div>
           <div class="fcol">
-            <h4>Company</h4>
+            <h3>Company</h3>
             <ul>
               <li><a href="#about">About Nishant Malakar</a></li>
               <li><a href="#process">Process</a></li>
               <li><a href="#faq">FAQ</a></li>
               <li><a href="blog/">Blog</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
             </ul>
           </div>
           <div class="fcol">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <ul>
               <li><a href="mailto:contact@visionsforge.in">Email Us</a></li>
               <li>

@@ -56,4 +56,9 @@
     <priority>0.7</priority>
   </url>
   <!-- NEW POSTS: PASTE ABOVE THIS LINE -->
+  <url>
+    <loc>https://www.visionsforge.in/privacy-policy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

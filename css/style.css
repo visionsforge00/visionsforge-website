@@ -1633,7 +1633,7 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 18px var(--shadow);
       }
-      .fcol h4 {
+      .fcol h3 {
         font-family: var(--fh);
         font-size: 13px;
         font-weight: 800;
@@ -2950,4 +2950,23 @@
         color: var(--c1);
         letter-spacing: 0.03em;
         margin-top: 2px;
+      }
+
+      /* ===== Book a Call (secondary link in contact section) ===== */
+      .book-call-alt {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin: 4px 0 28px;
+        font-family: var(--fb);
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--c1);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(0, 229, 200, 0.4);
+        padding-bottom: 2px;
+        transition: color 0.2s;
+      }
+      .book-call-alt:hover {
+        color: var(--c2);
       }

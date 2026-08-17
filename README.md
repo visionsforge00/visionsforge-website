@@ -30,6 +30,16 @@ site/
     └── chatbot.js              → The AI-style chat widget at the bottom of the page
 ```
 
+## "Book a Call" Buttons
+
+The nav bar button and the Contact section both link to your live Google
+Calendar Appointment Schedule:
+`https://calendar.app.google/Fp5gyUbnzxqs9Qz2A`
+
+If you ever want to change or replace this link, open `index.html`,
+search for `calendar.app.google/Fp5gyUbnzxqs9Qz2A`, and replace both
+occurrences (nav bar button + Contact section) with the new link.
+
 ## Adding a New Blog Post (Easy Way — No Code Editing)
 
 Use `blog-generator.html` (included in this download, outside the `site/`

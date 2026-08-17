@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | VisionsForge</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" href="logo-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="logo-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        background: #060a10;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+        padding: 24px;
+      }
+      .nf-wrap {
+        max-width: 480px;
+      }
+      .nf-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        margin-bottom: 28px;
+      }
+      .nf-code {
+        font-family: "Lato", sans-serif;
+        font-weight: 900;
+        font-size: clamp(64px, 14vw, 110px);
+        line-height: 1;
+        background: linear-gradient(135deg, #00e5c8, #3b82f6, #7c3aff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 8px;
+      }
+      .nf-title {
+        font-family: "Lato", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        color: #e8f4f8;
+        margin-bottom: 12px;
+      }
+      .nf-text {
+        font-size: 15px;
+        line-height: 1.7;
+        color: rgba(180, 210, 225, 0.6);
+        margin-bottom: 32px;
+      }
+      .nf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #00e5c8, #7c3aff);
+        color: #06121a;
+        font-weight: 800;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 13px 28px;
+        border-radius: 10px;
+      }
+      .nf-btn:hover {
+        opacity: 0.9;
+      }
+    </style>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0ZMCPW66K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-E0ZMCPW66K");
+    </script>
+  </head>
+  <body>
+    <div class="nf-wrap">
+      <img src="logo-icon.png" alt="VisionsForge" class="nf-logo" />
+      <div class="nf-code">404</div>
+      <div class="nf-title">This page doesn't exist</div>
+      <p class="nf-text">
+        The page you're looking for may have been moved or the link might
+        be broken. Let's get you back on track.
+      </p>
+      <a href="/index.html" class="nf-btn">← Back to Home</a>
+    </div>
+  </body>
+</html>
