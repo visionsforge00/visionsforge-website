@@ -1,0 +1,4 @@
+# Force HTTPS + www on every request (fixes GSC "Page with redirect" failed validation)
+http://visionsforge.in/*      https://www.visionsforge.in/:splat   301!
+https://visionsforge.in/*     https://www.visionsforge.in/:splat   301!
+http://www.visionsforge.in/*  https://www.visionsforge.in/:splat   301!
